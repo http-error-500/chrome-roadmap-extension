@@ -2,33 +2,30 @@
 
 // Function to apply specific styles to 'learning' (in-progress) SVG items
 function applyLearningItemStyles() {
-    // Select all 'g' elements that have the class 'learning' directly under 'svg'
-    // We target 'rect' and 'text tspan' within these 'g' elements
     const learningItems = document.querySelectorAll('svg g.learning');
 
     learningItems.forEach(gElement => {
         const rect = gElement.querySelector('rect');
-        const text = gElement.querySelector('text tspan');
+        const textTspan = gElement.querySelector('text tspan'); // Target tspan inside text for color
 
         if (rect) {
-            // Overriding SVG presentation attributes directly
-            rect.setAttribute('fill', '#ff8c00'); // A strong orange for in-progress items
-            rect.setAttribute('stroke', '#cc7000'); // Darker orange border
-            rect.style.setProperty('--hover-color', '#e67d00'); // Set custom property for hover if site uses it
+            // Apply orange fill and stroke as an inline style with !important
+            rect.style.setProperty('fill', '#ff8c00', 'important'); // A strong orange for in-progress items
+            rect.style.setProperty('stroke', '#cc7000', 'important'); // Darker orange border
 
-            // Add event listeners for hover effect if not natively handled by the site or CSS
-            // The site's SVG often uses :hover directly, but if not, this is a fallback.
+            // Add event listeners for hover effect directly manipulating the inline style
             gElement.addEventListener('mouseenter', () => {
-                rect.setAttribute('fill', '#e67d00'); // Slightly darker orange on hover
-                rect.setAttribute('stroke', '#b36300'); // Even darker orange border on hover
+                rect.style.setProperty('fill', '#e67d00', 'important'); // Slightly darker orange on hover
+                rect.style.setProperty('stroke', '#b36300', 'important'); // Even darker orange border on hover
             });
             gElement.addEventListener('mouseleave', () => {
-                rect.setAttribute('fill', '#ff8c00'); // Revert to base orange
-                rect.setAttribute('stroke', '#cc7000'); // Revert to base stroke
+                rect.style.setProperty('fill', '#ff8c00', 'important'); // Revert to base orange
+                rect.style.setProperty('stroke', '#cc7000', 'important'); // Revert to base stroke
             });
         }
-        if (text) {
-            text.setAttribute('fill', '#000000'); // Black text for contrast on orange
+        if (textTspan) {
+            // Apply black text color as an inline style with !important
+            textTspan.style.setProperty('fill', '#000000', 'important'); // Black text for contrast on orange
         }
     });
 }
@@ -48,26 +45,32 @@ function applyRoadmapStyles() {
         const observer = new MutationObserver(mutations => {
             let needsStyleUpdate = false;
             mutations.forEach(mutation => {
-                // Check if new SVG elements (especially 'g.learning') are added or attributes change
+                // Check if new SVG elements are added, or if classes/attributes change on 'g' or 'rect' elements
                 if (mutation.type === 'childList') {
                     mutation.addedNodes.forEach(node => {
                         if (node.nodeType === 1 && (node.matches('g.learning') || node.querySelector('g.learning'))) {
                             needsStyleUpdate = true;
                         }
                     });
-                } else if (mutation.type === 'attributes' && mutation.target.tagName === 'g' && mutation.target.classList.contains('learning')) {
-                    needsStyleUpdate = true; // If a 'g.learning' element's class changes (though we only care about 'learning' presence)
+                } else if (mutation.type === 'attributes') {
+                    // If a 'g.learning' element's class changes, or a 'rect's fill/stroke attribute changes
+                    if (mutation.target.tagName === 'g' && mutation.target.classList.contains('learning')) {
+                        needsStyleUpdate = true;
+                    } else if (mutation.target.tagName === 'rect' && mutation.target.closest('g.learning')) {
+                        needsStyleUpdate = true; // If fill/stroke attributes are changed on a rect within a learning group
+                    }
                 }
             });
 
             if (needsStyleUpdate) {
-                applyLearningItemStyles(); // Re-apply styles if relevant SVG content changed
+                // Give a small delay to ensure the page's own JS has settled, then apply our styles
+                setTimeout(applyLearningItemStyles, 50); // Small delay to avoid race conditions
             }
         });
 
         // Configure the observer to watch for changes to the DOM within the SVG container
         observer.observe(roadmapContainer, {
-            attributes: true, // Watch for attribute changes (like class)
+            attributes: true, // Watch for attribute changes (like class, style, fill, stroke)
             childList: true,  // Watch for direct children being added/removed
             subtree: true     // Watch all descendants of the target
         });

@@ -1,3 +1,8 @@
+# Chrome Roadmap.sh Extension
+A Google Chrome Extension that changes the looks of roadmap.sh to real dark mode and that marks completed items green and in progress items orange.
+
+
+
 i found out how to fix it
 ```html
 <g data-node-id="ezdqQW9wTUw93F6kjOzku" data-type="i-removed-this" data-title="Version Control Systems" data-parent-id="2f0ZO6GJElfZ2Eis28Hzg" data-parent-title="Pick a Language" class="r" style="

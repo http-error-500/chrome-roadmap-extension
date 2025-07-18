@@ -3,6 +3,16 @@ A Google Chrome Extension that changes the looks of roadmap.sh to real dark mode
 
 
 
+
+
+
+
+
+
+
+
+
+
 i found out how to fix it
 ```html
 <g data-node-id="ezdqQW9wTUw93F6kjOzku" data-type="i-removed-this" data-title="Version Control Systems" data-parent-id="2f0ZO6GJElfZ2Eis28Hzg" data-parent-title="Pick a Language" class="r" style="
@@ -18,7 +28,7 @@ some changes were probably not necessary
 now make it orange when the class is learning
 
 
-## this might also have caused it (but i injected)
+#### this might also have caused it (but i injected)
 
 ```
 vg g[data-type="topic"] rect, svg g[data-type="subtopic"] rect {
@@ -28,7 +38,7 @@ vg g[data-type="topic"] rect, svg g[data-type="subtopic"] rect {
 }
 ```
 
-# i found how to do it!
+#### i found how to do it!
 
 for all learning classes items
 

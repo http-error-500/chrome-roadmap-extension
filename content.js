@@ -10,17 +10,17 @@ function applyLearningItemStyles() {
 
         if (rect) {
             // Apply orange fill and stroke as an inline style with !important
-            rect.style.setProperty('fill', '#ff8c00', 'important'); // A strong orange for in-progress items
-            rect.style.setProperty('stroke', '#cc7000', 'important'); // Darker orange border
+            rect.style.setProperty('fill', '#ff8c00', 'important'); // Strong orange for fill
+            rect.style.setProperty('stroke', '#ff8c00', 'important'); // Same strong orange for stroke
 
             // Add event listeners for hover effect directly manipulating the inline style
             gElement.addEventListener('mouseenter', () => {
-                rect.style.setProperty('fill', '#e67d00', 'important'); // Slightly darker orange on hover
-                rect.style.setProperty('stroke', '#b36300', 'important'); // Even darker orange border on hover
+                rect.style.setProperty('fill', '#e67d00', 'important'); // Slightly darker orange on hover for fill
+                rect.style.setProperty('stroke', '#e67d00', 'important'); // Same slightly darker orange for hover stroke
             });
             gElement.addEventListener('mouseleave', () => {
                 rect.style.setProperty('fill', '#ff8c00', 'important'); // Revert to base orange
-                rect.style.setProperty('stroke', '#cc7000', 'important'); // Revert to base stroke
+                rect.style.setProperty('stroke', '#ff8c00', 'important'); // Revert to base orange stroke
             });
         }
         if (textTspan) {

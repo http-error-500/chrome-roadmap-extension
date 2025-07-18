@@ -121,20 +121,11 @@ svg g.done text tspan {
     text-decoration: none !important; /* Remove strikethrough if present */
 }
 
-/* Learning items (in progress) - set to orange with hover */
-svg .learning rect {
-  fill: #ff8c00 !important; /* A strong orange for in-progress items */
-  stroke: #cc7000 !important; /* Darker orange border */
-}
+/* Learning items (handled by JS for robustness) */
+/* These CSS rules are now primarily for fallback or less specific elements */
+/* The main styling for .learning rects is now in content.js */
 svg .learning text tspan {
-  fill: #000000 !important; /* Black text for contrast on orange */
-  text-decoration: underline !important; /* Keep original underline if desired */
-}
-
-/* Hover state for IN PROGRESS topics/subtopics */
-svg>g.learning:hover>rect {
-    fill: #e67d00 !important; /* Slightly darker orange on hover */
-    stroke: #b36300 !important; /* Even darker orange border on hover */
+  text-decoration: underline !important; /* Keep underline if desired */
 }
 
 /* Skipped items (if applicable) - adjust to a distinct color */

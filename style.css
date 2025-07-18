@@ -122,7 +122,6 @@ svg g.done text tspan {
 }
 
 /* Learning items (handled by JS for robustness) */
-/* These CSS rules are now primarily for fallback or less specific elements */
 /* The main styling for .learning rects is now in content.js */
 svg .learning text tspan {
   text-decoration: underline !important; /* Keep underline if desired */

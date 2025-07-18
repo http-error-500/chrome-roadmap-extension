@@ -121,14 +121,20 @@ svg g.done text tspan {
     text-decoration: none !important; /* Remove strikethrough if present */
 }
 
-/* Learning items (if applicable) - adjust to a distinct color */
+/* Learning items (in progress) - set to orange with hover */
 svg .learning rect {
-  fill: #ffc107 !important; /* Amber/Orange for learning */
-  stroke: #e0a800 !important;
+  fill: #ff8c00 !important; /* A strong orange for in-progress items */
+  stroke: #cc7000 !important; /* Darker orange border */
 }
 svg .learning text tspan {
-  fill: #000000 !important; /* Black text for contrast */
-  text-decoration: underline !important;
+  fill: #000000 !important; /* Black text for contrast on orange */
+  text-decoration: underline !important; /* Keep original underline if desired */
+}
+
+/* Hover state for IN PROGRESS topics/subtopics */
+svg>g.learning:hover>rect {
+    fill: #e67d00 !important; /* Slightly darker orange on hover */
+    stroke: #b36300 !important; /* Even darker orange border on hover */
 }
 
 /* Skipped items (if applicable) - adjust to a distinct color */

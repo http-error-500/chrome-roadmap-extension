@@ -178,11 +178,26 @@ svg .done text {
     text-decoration: none !important;
 }
 
+/* A more aggressive alternative if the above doesn't work, though usually not needed: */
+
+svg g.learning[data-type="topic"]:hover > rect,
+svg g.learning[data-type="subtopic"]:hover > rect {
+  fill: #e67d00 !important;
+  stroke: #e67d00 !important;
+}
+
 
 /* Learning items (Orange) - New CSS rules */
 svg g.learning rect {
   fill: #ff8c00 !important; /* Strong orange for in-progress items */
   stroke: #ff8c00 !important; /* Same strong orange for stroke */
+}
+
+/* Hover state for Learning items - Increased Specificity */
+/* Target the rect when its parent 'g' has the 'learning' class AND is hovered */
+svg g.learning:hover > rect {
+  fill: #e67d00 !important; /* Slightly darker orange on hover */
+  stroke: #e67d00 !important; /* Same slightly darker orange on hover */
 }
 
 /* Hover state for Learning items */

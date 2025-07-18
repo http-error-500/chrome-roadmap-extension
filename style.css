@@ -4,59 +4,60 @@ html, body {
   color: #e0e0e0 !important; /* Light text color */
 }
 
-/* Apply dark mode to common container elements, EXCLUDING the header */
-.page-container:not(header),
-.main-content:not(header),
-.bg-white:not(header),
-.bg-gray-100:not(header),
-.bg-gray-200:not(header),
-.bg-gray-300:not(header),
-.bg-gray-400:not(header),
-.bg-gray-500:not(header), /* This is the specific element you mentioned */
-.bg-gray-600:not(header),
-.bg-gray-700:not(header),
-.bg-gray-800:not(header),
-.bg-gray-900:not(header),
-.shadow-md:not(header),
-.border-gray-200:not(header),
-.border-gray-300:not(header),
-.border-gray-400:not(header),
-.border-gray-500:not(header),
-.border-gray-600:not(header),
-.border-gray-700:not(header),
-.border-gray-800:not(header),
-.border-gray-900:not(header) {
+/* Apply dark mode to common container elements, EXCLUDING the navbar container */
+.page-container:not(.bg-slate-900),
+.main-content:not(.bg-slate-900),
+.bg-white:not(.bg-slate-900),
+.bg-gray-100:not(.bg-slate-900),
+.bg-gray-200:not(.bg-slate-900),
+.bg-gray-300:not(.bg-slate-900),
+.bg-gray-400:not(.bg-slate-900),
+.bg-gray-500:not(.bg-slate-900),
+.bg-gray-600:not(.bg-slate-900),
+.bg-gray-700:not(.bg-slate-900),
+.bg-gray-800:not(.bg-slate-900),
+.bg-gray-900:not(.bg-slate-900),
+.shadow-md:not(.bg-slate-900),
+.border-gray-200:not(.bg-slate-900),
+.border-gray-300:not(.bg-slate-900),
+.border-gray-400:not(.bg-slate-900),
+.border-gray-500:not(.bg-slate-900),
+.border-gray-600:not(.bg-slate-900),
+.border-gray-700:not(.bg-slate-900),
+.border-gray-800:not(.bg-slate-900),
+.border-gray-900:not(.bg-slate-900),
+.bg-gray-50:not(.bg-slate-900) {
   background-color: #1e1e1e !important; /* Slightly lighter dark for content areas */
   color: #e0e0e0 !important;
   border-color: #333 !important;
 }
 
-/* Ensure all text elements are light, but specifically exclude those within header */
-h1:not(header *), h2:not(header *), h3:not(header *), h4:not(header *), h5:not(header *), h6:not(header *),
-p:not(header *), span:not(header *), li:not(header *), a:not(header *), div:not(header *),
-strong:not(header *), em:not(header *), code:not(header *), pre:not(header *) {
+/* Ensure all text elements are light, but specifically exclude those within the navbar */
+h1:not(.bg-slate-900 *), h2:not(.bg-slate-900 *), h3:not(.bg-slate-900 *), h4:not(.bg-slate-900 *), h5:not(.bg-slate-900 *), h6:not(.bg-slate-900 *),
+p:not(.bg-slate-900 *), span:not(.bg-slate-900 *), li:not(.bg-slate-900 *), a:not(.bg-slate-900 *), div:not(.bg-slate-900 *),
+strong:not(.bg-slate-900 *), em:not(.bg-slate-900 *), code:not(.bg-slate-900 *), pre:not(.bg-slate-900 *) {
   color: #e0e0e0 !important;
 }
 
-/* Specific adjustments for links that might have default blue, excluding header links */
-a:not(header *) {
+/* Specific adjustments for links that might have default blue, excluding navbar links */
+a:not(.bg-slate-900 *) {
   color: #8ab4f8 !important; /* A light blue for links */
 }
 
-/* Adjust input fields, text areas, and selects, excluding those in header (if any) */
-input:not(header *), textarea:not(header *), select:not(header *) {
+/* Adjust input fields, text areas, and selects, excluding those in navbar (if any) */
+input:not(.bg-slate-900 *), textarea:not(.bg-slate-900 *), select:not(.bg-slate-900 *) {
   background-color: #2a2a2a !important;
   color: #e0e0e0 !important;
   border: 1px solid #444 !important;
 }
 
-/* Adjust buttons, excluding those in header */
-button:not(header *), .btn:not(header *) {
+/* Adjust buttons, excluding those in navbar */
+button:not(.bg-slate-900 *), .btn:not(.bg-slate-900 *) {
   background-color: #3a3a3a !important;
   color: #e0e0e0 !important;
   border: 1px solid #555 !important;
 }
-button:not(header *):hover, .btn:not(header *):hover {
+button:not(.bg-slate-900 *):hover, .btn:not(.bg-slate-900 *):hover {
   background-color: #4a4a4a !important;
 }
 
@@ -140,26 +141,26 @@ svg .skipped text tspan {
   text-decoration: line-through !important;
 }
 
-/* General clean-up for other UI elements that might have light backgrounds, EXCLUDING header */
-.roadmap-container:not(header *),
-.card:not(header *),
-.modal-content:not(header *) {
+/* General clean-up for other UI elements that might have light backgrounds, EXCLUDING navbar */
+.roadmap-container:not(.bg-slate-900 *),
+.card:not(.bg-slate-900 *),
+.modal-content:not(.bg-slate-900 *) {
     background-color: #1e1e1e !important;
     color: #e0e0e0 !important;
     border-color: #333 !important;
 }
 
-/* Override any specific inline styles that might conflict, EXCLUDING those in header */
-[style*="background-color: rgb(255, 255, 255)"]:not(header *),
-[style*="background-color: white"]:not(header *) {
+/* Override any specific inline styles that might conflict, EXCLUDING those in navbar */
+[style*="background-color: rgb(255, 255, 255)"]:not(.bg-slate-900 *),
+[style*="background-color: white"]:not(.bg-slate-900 *) {
     background-color: #1e1e1e !important;
 }
-[style*="fill: #ffffff"]:not(header *),
-[style*="fill: white"]:not(header *) {
+[style*="fill: #ffffff"]:not(.bg-slate-900 *),
+[style*="fill: white"]:not(.bg-slate-900 *) {
     fill: #e0e0e0 !important;
 }
-[style*="color: #000000"]:not(header *),
-[style*="color: black"]:not(header *) {
+[style*="color: #000000"]:not(.bg-slate-900 *),
+[style*="color: black"]:not(.bg-slate-900 *) {
     color: #e0e0e0 !important;
 }
 

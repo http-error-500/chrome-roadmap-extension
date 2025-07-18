@@ -179,3 +179,20 @@ svg .done text {
 }
 
 
+/* Learning items (Orange) - New CSS rules */
+svg g.learning rect {
+  fill: #ff8c00 !important; /* Strong orange for in-progress items */
+  stroke: #ff8c00 !important; /* Same strong orange for stroke */
+}
+
+/* Hover state for Learning items */
+svg g.learning:hover rect {
+  fill: #e67d00 !important; /* Slightly darker orange on hover */
+  stroke: #e67d00 !important; /* Same slightly darker orange on hover */
+}
+
+/* Ensure text in learning items is black for contrast on orange */
+svg g.learning text tspan {
+  fill: #000000 !important; /* Black text for contrast */
+  text-decoration: underline !important; /* Keep underline if desired */
+}

@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Roadmap Dark Mode & Green Completed Items",
+  "version": "1.0",
+  "description": "Applies dark mode to roadmap.sh/backend and highlights completed items in green.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["https://roadmap.sh/backend"],
+  "content_scripts": [
+    {
+      "matches": ["https://roadmap.sh/backend"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

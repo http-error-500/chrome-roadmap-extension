@@ -1,0 +1,182 @@
+/* General Dark Mode for the entire page */
+html, body {
+  background-color: #121212 !important; /* Very dark background */
+  color: #e0e0e0 !important; /* Light text color */
+}
+
+/* Apply dark mode to common container elements, EXCLUDING the header */
+.page-container:not(header),
+.main-content:not(header),
+.bg-white:not(header),
+.bg-gray-100:not(header),
+.bg-gray-200:not(header),
+.bg-gray-300:not(header),
+.bg-gray-400:not(header),
+.bg-gray-500:not(header), /* This is the specific element you mentioned */
+.bg-gray-600:not(header),
+.bg-gray-700:not(header),
+.bg-gray-800:not(header),
+.bg-gray-900:not(header),
+.shadow-md:not(header),
+.border-gray-200:not(header),
+.border-gray-300:not(header),
+.border-gray-400:not(header),
+.border-gray-500:not(header),
+.border-gray-600:not(header),
+.border-gray-700:not(header),
+.border-gray-800:not(header),
+.border-gray-900:not(header) {
+  background-color: #1e1e1e !important; /* Slightly lighter dark for content areas */
+  color: #e0e0e0 !important;
+  border-color: #333 !important;
+}
+
+/* Ensure all text elements are light, but specifically exclude those within header */
+h1:not(header *), h2:not(header *), h3:not(header *), h4:not(header *), h5:not(header *), h6:not(header *),
+p:not(header *), span:not(header *), li:not(header *), a:not(header *), div:not(header *),
+strong:not(header *), em:not(header *), code:not(header *), pre:not(header *) {
+  color: #e0e0e0 !important;
+}
+
+/* Specific adjustments for links that might have default blue, excluding header links */
+a:not(header *) {
+  color: #8ab4f8 !important; /* A light blue for links */
+}
+
+/* Adjust input fields, text areas, and selects, excluding those in header (if any) */
+input:not(header *), textarea:not(header *), select:not(header *) {
+  background-color: #2a2a2a !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #444 !important;
+}
+
+/* Adjust buttons, excluding those in header */
+button:not(header *), .btn:not(header *) {
+  background-color: #3a3a3a !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #555 !important;
+}
+button:not(header *):hover, .btn:not(header *):hover {
+  background-color: #4a4a4a !important;
+}
+
+/* Dark mode for code blocks (these are unlikely to be in the navbar) */
+code:not(pre code) {
+  background: #333 !important;
+  color: #9efeff !important;
+}
+pre code {
+  background: #2a2a2a !important;
+  color: #e0e0e0 !important;
+}
+
+/* SVG Specific Styling */
+
+/* Target the main SVG container background if it exists */
+#resource-svg-wrap {
+    background-color: #121212 !important; /* Ensure the area around the SVG is dark */
+}
+
+/* Change the fill of the SVG background itself (if applicable) */
+#resource-svg-wrap svg > rect {
+    fill: #1a1a1a !important; /* Dark background for the SVG drawing area */
+}
+
+/* Default state for all topic/subtopic rectangles (uncompleted) */
+svg g[data-type="topic"] rect,
+svg g[data-type="subtopic"] rect {
+  fill: #3a3a3a !important; /* Dark grey for uncompleted items */
+  stroke: #6a6a6a !important; /* Lighter border */
+  stroke-width: 2.7 !important; /* Maintain original stroke width */
+}
+
+/* Text color for all topic/subtopic text */
+svg text tspan {
+  fill: #e0e0e0 !important; /* Light text for readability */
+}
+
+/* Hover state for UNCOMPLETED topics/subtopics in dark mode */
+svg>g[data-type=topic]:not(.done):hover>rect,
+svg>g[data-type=subtopic]:not(.done):hover>rect {
+    fill: #5a5a5a !important; /* Slightly lighter grey on hover */
+    stroke: #8a8a8a !important;
+}
+
+/* COMPLETED ROADMAP ITEMS (GREEN) */
+svg g.done rect {
+  fill: #28a745 !important; /* A vibrant green for completed items */
+  stroke: #1e7e34 !important; /* Darker green border */
+}
+
+/* Hover state for COMPLETED roadmap items */
+svg g.done:hover rect {
+    fill: #1e843b !important; /* A slightly darker green on hover for completed items */
+    stroke: #17682e !important; /* Even darker green border on hover */
+}
+
+/* Ensure text in completed items is dark for contrast on green */
+svg g.done text tspan {
+    fill: #000000 !important; /* Black text for contrast */
+    text-decoration: none !important; /* Remove strikethrough if present */
+}
+
+/* Learning items (if applicable) - adjust to a distinct color */
+svg .learning rect {
+  fill: #ffc107 !important; /* Amber/Orange for learning */
+  stroke: #e0a800 !important;
+}
+svg .learning text tspan {
+  fill: #000000 !important; /* Black text for contrast */
+  text-decoration: underline !important;
+}
+
+/* Skipped items (if applicable) - adjust to a distinct color */
+svg .skipped rect {
+  fill: #6c757d !important; /* Grey for skipped */
+  stroke: #5a6268 !important;
+}
+svg .skipped text tspan {
+  fill: #e0e0e0 !important; /* Light text */
+  text-decoration: line-through !important;
+}
+
+/* General clean-up for other UI elements that might have light backgrounds, EXCLUDING header */
+.roadmap-container:not(header *),
+.card:not(header *),
+.modal-content:not(header *) {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #333 !important;
+}
+
+/* Override any specific inline styles that might conflict, EXCLUDING those in header */
+[style*="background-color: rgb(255, 255, 255)"]:not(header *),
+[style*="background-color: white"]:not(header *) {
+    background-color: #1e1e1e !important;
+}
+[style*="fill: #ffffff"]:not(header *),
+[style*="fill: white"]:not(header *) {
+    fill: #e0e0e0 !important;
+}
+[style*="color: #000000"]:not(header *),
+[style*="color: black"]:not(header *) {
+    color: #e0e0e0 !important;
+}
+
+/* Ensure the `fill` property on the `rect` element within the `done` group is green */
+svg g.done rect {
+    fill: #28a745 !important; /* Green */
+}
+
+/* Ensure the `fill` property on the `text` element within the `done` group is black */
+svg g.done text {
+    fill: #000000 !important; /* Black */
+}
+
+/* If you want to retain strikethrough for skipped items but not done: */
+svg .skipped text {
+    text-decoration: line-through !important;
+}
+svg .done text {
+    text-decoration: none !important;
+}
